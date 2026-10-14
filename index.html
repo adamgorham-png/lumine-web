@@ -1,0 +1,1305 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUMINE | Huerto Exprés</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --green: #386641;
+      --light-green: #a7c957;
+      --cream: #f7f6ed;
+      --yellow: #f2e8a0;
+      --dark: #263528;
+      --white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.7;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      background: var(--green);
+      color: white;
+      padding: 16px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: 3px;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    nav a {
+      font-size: 13px;
+      font-weight: 500;
+    }
+
+    nav a:hover {
+      color: var(--yellow);
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #dce9c5, #f7f6ed);
+      padding: 75px 7%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 35px;
+      flex-wrap: wrap;
+    }
+
+    .hero-text {
+      flex: 1 1 320px;
+    }
+
+    .tag {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--green);
+      padding: 6px 15px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+
+    .hero h1 {
+      font-size: clamp(38px, 6vw, 65px);
+      line-height: 1.15;
+      color: var(--green);
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 570px;
+      margin-bottom: 25px;
+    }
+
+    .hero-image {
+      flex: 1 1 280px;
+      text-align: center;
+    }
+
+    .hero-image img {
+      width: 100%;
+      max-width: 420px;
+      max-height: 380px;
+      object-fit: contain;
+      border-radius: 22px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--green);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 24px;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .btn:hover {
+      background: #284d30;
+      transform: translateY(-2px);
+    }
+
+    .btn-light {
+      background: var(--light-green);
+      color: var(--dark);
+    }
+
+    section {
+      padding: 65px 7%;
+      scroll-margin-top: 20px;
+    }
+
+    .section-heading {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .section-heading h2 {
+      color: var(--green);
+      font-size: clamp(27px, 4vw, 38px);
+      margin-bottom: 8px;
+    }
+
+    .section-heading p {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 22px;
+    }
+
+    .card {
+      background: white;
+      padding: 25px;
+      border-radius: 18px;
+      box-shadow: 0 5px 18px rgba(38, 53, 40, 0.07);
+    }
+
+    .card h3 {
+      color: var(--green);
+      margin-bottom: 10px;
+    }
+
+    .card-icon {
+      font-size: 35px;
+      margin-bottom: 10px;
+    }
+
+    .about {
+      background: white;
+    }
+
+    .product-layout {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      align-items: center;
+      gap: 40px;
+    }
+
+    .product-photo {
+      width: 100%;
+      max-width: 500px;
+      display: block;
+      margin: auto;
+      border-radius: 20px;
+      object-fit: contain;
+    }
+
+    .price {
+      color: var(--green);
+      font-size: 30px;
+      font-weight: 800;
+      margin: 12px 0;
+    }
+
+    .product-info ul {
+      padding-left: 22px;
+      margin: 15px 0 22px;
+    }
+
+    .video-placeholder {
+      background: #e7eddc;
+      border: 2px dashed #8aa477;
+      border-radius: 18px;
+      min-height: 230px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .video-placeholder .play {
+      font-size: 48px;
+      margin-bottom: 8px;
+    }
+
+    .organigrama {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      margin-top: 25px;
+    }
+
+    .org-box {
+      background: var(--green);
+      color: white;
+      padding: 14px 25px;
+      border-radius: 12px;
+      text-align: center;
+      width: min(100%, 280px);
+      font-weight: 600;
+    }
+
+    .org-branches {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      width: 100%;
+      max-width: 850px;
+    }
+
+    .org-branches .org-box {
+      background: var(--light-green);
+      color: var(--dark);
+      width: 100%;
+      font-size: 14px;
+    }
+
+    .ods-number {
+      display: inline-block;
+      background: var(--yellow);
+      color: var(--green);
+      font-weight: 800;
+      padding: 5px 12px;
+      border-radius: 8px;
+      margin-bottom: 12px;
+    }
+
+    .cart-section {
+      background: white;
+    }
+
+    .cart-box {
+      max-width: 800px;
+      margin: auto;
+      background: var(--cream);
+      border-radius: 18px;
+      padding: 25px;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+      padding: 15px 0;
+      border-bottom: 1px solid #d9dfd1;
+    }
+
+    .quantity-controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .quantity-controls button {
+      border: none;
+      background: var(--green);
+      color: white;
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .cart-total {
+      text-align: right;
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--green);
+      margin: 20px 0;
+    }
+
+    .cart-actions {
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .yape-box {
+      text-align: center;
+      background: #f0e8f7;
+      border-radius: 18px;
+      padding: 30px;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    .yape-logo {
+      color: #702082;
+      font-size: 35px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .yape-placeholder {
+      border: 2px dashed #9b78a8;
+      border-radius: 15px;
+      padding: 25px;
+      margin: 20px auto;
+      max-width: 300px;
+      background: white;
+    }
+
+    footer {
+      background: var(--green);
+      color: white;
+      text-align: center;
+      padding: 25px 7%;
+      font-size: 13px;
+    }
+
+    footer p + p {
+      margin-top: 5px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        justify-content: center;
+      }
+
+      nav {
+        justify-content: center;
+      }
+
+      .hero {
+        padding-top: 50px;
+        padding-bottom: 50px;
+      }
+
+      section {
+        padding: 45px 6%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <a href="#inicio" class="logo">LUMINE 🌱</a>
+
+    <nav>
+      <a href="#inicio">Inicio</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#producto">Producto</a>
+      <a href="#ods">ODS</a>
+      <a href="#carrito">Carrito</a>
+      <a href="#yape">Yape</a>
+      <a href="#contacto">Contáctanos</a>
+
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- PORTADA -->
+    <section class="hero" id="inicio">
+      <div class="hero-text">
+        <span class="tag">Cultiva en casa, crece con la naturaleza</span>
+        <h1>Tu pequeño huerto, un gran comienzo.</h1>
+        <p>
+          En LUMINE creemos que todos podemos aprender a cultivar.
+          Nuestro Kit Huerto Exprés te ayuda a comenzar tu propio huerto
+          en casa de una manera sencilla, práctica y divertida.
+        </p>
+        <a class="btn" href="#producto">Conoce nuestro producto</a>
+      </div>
+
+      <div class="hero-image">
+        <img
+          src="https://i.ibb.co/SXdW4bDY/IMG-9548.png"
+          alt="Kit Huerto Exprés LUMINE"
+        >
+      </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section class="about" id="nosotros">
+      <div class="section-heading">
+        <h2>Conoce LUMINE</h2>
+        <p>Una iniciativa que busca acercar la naturaleza a los hogares.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="card-icon">🌿</div>
+          <h3>Misión</h3>
+          <p>
+            Ofrecer un kit práctico y accesible que permita a las personas
+            aprender a sembrar y cuidar plantas desde casa, promoviendo
+            hábitos responsables con el ambiente.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">🌎</div>
+          <h3>Visión</h3>
+          <p>
+            Ser una iniciativa reconocida por fomentar la educación
+            ambiental y ayudar a que más familias incorporen pequeñas
+            áreas verdes en su vida cotidiana.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="card-icon">💚</div>
+          <h3>Propósito</h3>
+          <p>
+            Inspirar a las personas a conectar con la naturaleza,
+            descubrir cómo crecen las plantas y desarrollar responsabilidad
+            mediante el cuidado de un pequeño huerto.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- BRANDING -->
+    <section id="branding">
+      <div class="section-heading">
+        <h2>Nuestra identidad</h2>
+        <p>El diseño de LUMINE transmite naturaleza, tranquilidad y crecimiento.</p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <h3>🌱 Nombre</h3>
+          <p>
+            LUMINE representa una marca asociada con la luz, el crecimiento
+            y nuevas oportunidades para conectar con la naturaleza.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>🎨 Psicología de los colores</h3>
+          <p>
+            <strong>Verde:</strong> naturaleza, equilibrio y vida.<br>
+            <strong>Amarillo:</strong> energía, optimismo y creatividad.<br>
+            <strong>Crema:</strong> sencillez, calma y naturalidad.
+          </p>
+        </article>
+
+        <article class="card">
+          <h3>🌿 Eslogan</h3>
+          <p>
+            “Tu pequeño huerto, un gran comienzo”.
+            Comunica que una pequeña acción puede ser el inicio de
+            un hábito positivo.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section class="about" id="video">
+      <div class="section-heading">
+        <h2>Video de bienvenida</h2>
+        <p>Conoce la idea detrás de LUMINE.</p>
+      </div>
+
+      <div class="video-placeholder">
+        <div class="play">▶️</div>
+        <h3>¡Bienvenido a LUMINE!</h3>
+        <p>
+
+<section id="video-bienvenida">
+  <h2>Video de bienvenida a LUMINE</h2>
+
+  <video controls playsinline width="100%">
+    <source src="https://cdn.dbimg.app/MrPX1bVQ.mp4" type="video/mp4">
+    Tu navegador no puede reproducir este video.
+  </video>
+</section>
+
+        </p>
+      </div>
+    </section>
+
+   
+<!-- ORGANIGRAMA -->
+<section id="organigrama">
+  <div class="section-heading">
+    <h2>Organigrama de la empresa</h2>
+    <p>Conoce cómo se organiza el equipo de LUMINE.</p>
+  </div>
+
+  <div class="org-chart">
+    <div class="org-top">
+      <h3>GERENTE GENERAL</h3>
+      <p>SOFIA CARRERA</p>
+    </div>
+
+    <div class="org-columns">
+      <!-- TECNOLOGÍA -->
+      <div class="org-column">
+        <div class="org-person">
+          <strong>ADAM GORHAM</strong>
+          <span>TECNOLOGÍA</span>
+        </div>
+        <div class="org-task">PÁGINA WEB</div>
+        <div class="org-task">CANALES DE VENTAS</div>
+        <div class="org-task">MONEDERO ELECTRÓNICO</div>
+      </div>
+
+      <!-- RECURSOS HUMANOS -->
+      <div class="org-column">
+        <div class="org-person">
+          <strong>VALEZKA APAZA</strong>
+          <span>RECURSOS HUMANOS</span>
+        </div>
+        <div class="org-task">ORGANIGRAMA DE LA EMPRESA</div>
+        <div class="org-task">REGLAMENTO INTERNO</div>
+        <div class="org-task">SUELDOS</div>
+        <div class="org-task">UTILIDADES</div>
+      </div>
+
+      <!-- MARKETING Y COMERCIO -->
+      <div class="org-column">
+        <div class="org-person">
+          <strong>ADRIANA MAMANI</strong>
+          <span>MARKETING Y COMERCIO</span>
+        </div>
+        <div class="org-task">CAMPAÑA PUBLICITARIA</div>
+        <div class="org-task">PLAN DE MARKETING</div>
+        <div class="org-task">VALOR AGREGADO</div>
+        <div class="org-task">CANALES DE VENTA</div>
+        <div class="org-task">SISTEMAS DE ENTREGA</div>
+      </div>
+
+      <!-- FINANZAS -->
+      <div class="org-column">
+        <div class="org-person">
+          <strong>MATIAS CHUQUIURE</strong>
+          <span>FINANZAS</span>
+        </div>
+        <div class="org-task">PRESUPUESTO</div>
+        <div class="org-task">CAPITAL</div>
+        <div class="org-task">PUNTO DE EQUILIBRIO</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .org-chart {
+    width: 100%;
+    max-width: 1100px;
+    margin: 30px auto;
+    color: #263528;
+  }
+
+  .org-top {
+    width: min(100%, 400px);
+    margin: 0 auto 30px;
+    padding: 22px 15px;
+    text-align: center;
+    background: #386641;
+    color: white;
+    border-radius: 25px;
+    border: 2px solid #a7c957;
+  }
+
+  .org-top h3 {
+    font-size: 25px;
+    margin-bottom: 5px;
+  }
+
+  .org-top p {
+    font-size: 17px;
+    font-weight: 600;
+  }
+
+  .org-columns {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+    align-items: start;
+    position: relative;
+  }
+
+  .org-column {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    min-width: 0;
+  }
+
+  .org-person {
+    min-height: 78px;
+    padding: 12px 8px;
+    border: 2px solid #a7c957;
+    border-radius: 12px;
+    background: #e7eddc;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 7px;
+  }
+
+  .org-person strong {
+    font-size: 13px;
+  }
+
+  .org-person span {
+    font-size: 10px;
+  }
+
+  .org-task {
+    min-height: 66px;
+    padding: 15px 8px;
+    background: #f7f6ed;
+    border: 1px solid #d5dfc8;
+    border-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    overflow-wrap: anywhere;
+  }
+
+  .org-task:hover {
+    background: #e7eddc;
+    border-color: #386641;
+  }
+
+  @media (max-width: 750px) {
+    .org-columns {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 420px) {
+    .org-columns {
+      grid-template-columns: 1fr;
+    }
+
+    .org-top h3 {
+      font-size: 21px;
+    }
+  }
+</style>
+
+
+    <!-- PRODUCTO -->
+    <section class="about" id="producto">
+      <div class="section-heading">
+        <h2>Kit Huerto Exprés</h2>
+        <p>Todo comienza con una semilla.</p>
+      </div>
+
+      <div class="product-layout">
+        <div>
+          <img
+            class="product-photo"
+            src="https://i.ibb.co/SXdW4bDY/IMG-9548.png"
+            alt="Fotografía del Kit Huerto Exprés LUMINE"
+          >
+        </div>
+
+        <div class="product-info">
+          <span class="tag">Producto LUMINE</span>
+          <h2>Kit Huerto Exprés LUMINE</h2>
+          <p>
+            Una opción para iniciarte en el cultivo de plantas desde casa.
+            Aprende el proceso de siembra y observa cómo una semilla
+            puede convertirse en una planta con los cuidados adecuados.
+          </p>
+
+          <ul>
+            <li>Materiales para comenzar tu pequeño huerto.</li>
+            <li>Semillas para iniciar el proceso de cultivo.</li>
+            <li>Tierra y maceta para la siembra.</li>
+            <li>Instrucciones para ayudarte durante el proceso.</li>
+          </ul>
+
+          <p class="price">S/ 17.50</p>
+
+          <button class="btn" onclick="addToCart()">
+            🛒 Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ODS -->
+    <section id="ods">
+      <div class="section-heading">
+        <h2>LUMINE y los ODS</h2>
+        <p>
+          Nuestro proyecto se relaciona con los Objetivos de Desarrollo
+          Sostenible de las Naciones Unidas.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <span class="ods-number">ODS 4</span>
+          <h3>Educación de calidad</h3>
+          <p>
+            El kit permite aprender de manera práctica sobre las plantas,
+            la germinación y la responsabilidad de cuidar seres vivos.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="ods-number">ODS 12</span>
+          <h3>Producción y consumo responsables</h3>
+          <p>
+            El proyecto promueve el uso consciente de los materiales
+            y el aprovechamiento responsable de los recursos.
+          </p>
+        </article>
+
+        <article class="card">
+          <span class="ods-number">ODS 15</span>
+          <h3>Vida de ecosistemas terrestres</h3>
+          <p>
+            Cultivar y cuidar plantas ayuda a valorar la naturaleza
+            y comprender la importancia de proteger los ecosistemas.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- CARRITO -->
+    <section class="cart-section" id="carrito">
+      <div class="section-heading">
+        <h2>🛒 Carrito de compras</h2>
+        <p>Revisa tu pedido antes de continuar.</p>
+      </div>
+
+      <div class="cart-box">
+        <div class="cart-item">
+          <div>
+            <h3>Kit Huerto Exprés LUMINE</h3>
+            <p>Precio por unidad: S/ 17.50</p>
+          </div>
+
+          <div class="quantity-controls">
+            <button onclick="changeQuantity(-1)" aria-label="Reducir cantidad">−</button>
+            <span id="quantity">0</span>
+            <button onclick="changeQuantity(1)" aria-label="Aumentar cantidad">+</button>
+          </div>
+        </div>
+
+        <div class="cart-total">
+          Total: S/ <span id="total">0.00</span>
+        </div>
+
+        <div class="cart-actions">
+          <button class="btn btn-light" onclick="clearCart()">
+            Vaciar carrito
+          </button>
+          <button class="btn" onclick="checkout()">
+            Continuar pedido
+          </button>
+        </div>
+
+        <p id="cart-message" style="margin-top:15px; text-align:right;" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- YAPE -->
+    
+<!-- YAPE -->
+<section id="yape">
+  <div class="section-heading">
+    <h2>Realiza tu pago</h2>
+    <p>Tu compra ayuda a que más personas se animen a cultivar.</p>
+  </div>
+
+  <div class="yape-box">
+
+    <div class="yape-logo">Yape 💜</div>
+
+    <h3>¡Gracias por elegir LUMINE!</h3>
+
+    <p style="margin-top:10px;">
+      Escanea el código QR para realizar el pago de tu pedido.
+    </p>
+
+    <!-- CÓDIGO QR DE YAPE -->
+    <div style="
+      margin:20px auto;
+      max-width:350px;
+      padding:12px;
+      background:#ffffff;
+      border-radius:15px;
+      text-align:center;
+    ">
+      <img
+        src="https://i.ibb.co/v4vVJ4QX/unnamed-1.png"
+        alt="Código QR de Yape para pagar el pedido de LUMINE"
+        style="
+          display:block;
+          width:100%;
+          max-width:326px;
+          height:auto;
+          margin:0 auto;
+          border-radius:8px;
+        "
+        onerror="this.style.display='none'; document.getElementById('qr-error').style.display='block';"
+      >
+
+      <p id="qr-error" style="display:none; color:#702082;">
+        No se pudo cargar el QR. Comprueba el enlace de la imagen.
+      </p>
+    </div>
+
+    <!-- DESTINATARIA -->
+    <p style="font-size:14px; margin-bottom:20px;">
+      <strong>Destinataria:</strong><br>
+      Isabel De Jesus Briceno Valderrama
+    </p>
+
+    <!-- TOTAL DEL PEDIDO -->
+    <div style="
+      background:#ffffff;
+      border-radius:15px;
+      padding:20px;
+      margin:20px auto;
+      max-width:350px;
+      border:2px solid #d8c3e3;
+      box-sizing:border-box;
+    ">
+      <p style="color:#702082; margin:0;">
+        Total de tu pedido
+      </p>
+
+      <h2 style="
+        color:#702082;
+        font-size:32px;
+        margin:8px 0;
+      ">
+        S/ <span id="yape-total">0.00</span>
+      </h2>
+
+      <p style="font-size:13px; margin-bottom:0;">
+        Verifica que el monto en Yape coincida con el total
+        antes de confirmar el pago.
+      </p>
+    </div>
+
+    <p style="font-size:13px; margin-top:15px;">
+      El pago debe realizarse desde la aplicación Yape.
+      Esta página no confirma automáticamente la recepción del dinero.
+    </p>
+
+  </div>
+</section>
+
+
+    
+<!-- CONTACTO LUMINE -->
+<section id="contacto" class="about">
+  <div class="section-heading">
+    <h2>Estamos aquí para ayudarte 💚</h2>
+    <p>
+      En LUMINE queremos acompañarte en cada paso de tu
+      experiencia cultivando. ¡Nos encantará escucharte!
+    </p>
+  </div>
+
+  <div class="yape-box" style="background:#e7eddc;">
+    <div style="font-size:42px;">🌱</div>
+    <h3>Contáctanos</h3>
+    <p>
+      ¿Tienes dudas sobre nuestro kit, los materiales o tu pedido?
+      Escríbenos y estaremos encantados de ayudarte.
+    </p>
+
+    <p style="margin:18px 0;">
+      <strong>📧 Correo electrónico</strong><br>
+      clienteslumine@gmail.com
+    </p>
+
+    <p style="margin-bottom:20px;">
+      <strong>🕗 Horario de atención</strong><br>
+      Todos los días, de 8:00 a. m. a 8:00 p. m.
+    </p>
+
+ 
+<a class="btn"
+   href="https://mail.google.com/mail/?view=cm&fs=1&to=clienteslumine%40gmail.com&su=Consulta%20sobre%20LUMINE"
+   target="_blank"
+   rel="noopener noreferrer">
+  📧 Enviar un correo
+</a>
+
+  </div>
+</section>
+
+
+  </main>
+
+  <footer>
+    <p><strong>LUMINE | Kit Huerto Exprés</strong></p>
+    <p>Cultiva en casa, crece con la naturaleza. 🌱</p>
+  </footer>
+
+  <script>
+    const PRICE = 17.50;
+    let quantity = 0;
+
+    function updateCart() {
+      document.getElementById("quantity").textContent = quantity;
+      document.getElementById("total").textContent =
+        (quantity * PRICE).toFixed(2);
+    }
+
+    function addToCart() {
+      quantity += 1;
+      updateCart();
+
+      document.getElementById("cart-message").textContent =
+        "¡Producto agregado al carrito!";
+
+      document.getElementById("carrito").scrollIntoView({
+        behavior: "smooth"
+      });
+    }
+
+    function changeQuantity(amount) {
+      quantity = Math.max(0, quantity + amount);
+      updateCart();
+
+      document.getElementById("cart-message").textContent =
+        quantity === 0 ? "Tu carrito está vacío." : "";
+    }
+
+    function clearCart() {
+      quantity = 0;
+      updateCart();
+
+      document.getElementById("cart-message").textContent =
+        "Has vaciado el carrito.";
+    }
+
+    function checkout() {
+      if (quantity === 0) {
+        document.getElementById("cart-message").textContent =
+          "Agrega al menos un producto antes de continuar.";
+        return;
+      }
+
+      const total = (quantity * PRICE).toFixed(2);
+
+      const message =
+        "Hola, quiero hacer un pedido de LUMINE.%0A" +
+        "Producto: Kit Huerto Exprés LUMINE%0A" +
+        "Cantidad: " + quantity + "%0A" +
+        "Total: S/ " + total;
+
+      document.getElementById("cart-message").textContent =
+        "Tu pedido está preparado. Para enviarlo, configura el contacto de ventas de LUMINE.";
+
+      // Para activar pedidos por WhatsApp, reemplaza NUMERO_AQUI
+      // por el número de ventas con código de país, sin el signo +.
+      // Ejemplo de formato: 519XXXXXXXX
+      const phone = "NUMERO_AQUI";
+
+      if (phone !== "NUMERO_AQUI") {
+        window.open(
+          "https://wa.me/" + phone + "?text=" + message,
+          "_blank"
+        );
+      }
+    }
+
+    updateCart();
+  </script>
+
+<!-- CHAT IA LUMINE -->
+<style>
+  #lumine-chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 9999;
+    background: #386641;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 20px;
+    font-family: Poppins, sans-serif;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 4px 14px #0003;
+  }
+
+  #lumine-chat-window {
+    display: none;
+    position: fixed;
+    bottom: 85px;
+    right: 20px;
+    width: 340px;
+    max-width: calc(100vw - 30px);
+    height: 440px;
+    max-height: 65vh;
+    background: white;
+    border-radius: 18px;
+    box-shadow: 0 5px 25px #0003;
+    z-index: 9999;
+    overflow: hidden;
+    font-family: Poppins, sans-serif;
+    border: 2px solid #a7c957;
+  }
+
+  #lumine-chat-header {
+    background: #386641;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #lumine-chat-header small {
+    display: block;
+    font-weight: 400;
+  }
+
+  #lumine-chat-close {
+    border: none;
+    background: transparent;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  #lumine-chat-messages {
+    height: calc(100% - 125px);
+    overflow-y: auto;
+    padding: 14px;
+    background: #f7f6ed;
+  }
+
+  .lumine-message {
+    padding: 10px 12px;
+    border-radius: 12px;
+    margin-bottom: 10px;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+  }
+
+  .lumine-bot {
+    background: #e7eddc;
+    color: #263528;
+    margin-right: 20px;
+  }
+
+  .lumine-user {
+    background: #386641;
+    color: white;
+    margin-left: 20px;
+    text-align: right;
+  }
+
+  #lumine-chat-form {
+    display: flex;
+    padding: 10px;
+    gap: 7px;
+    border-top: 1px solid #ddd;
+  }
+
+  #lumine-chat-input {
+    flex: 1;
+    min-width: 0;
+    border: 1px solid #cbd5c0;
+    border-radius: 20px;
+    padding: 10px;
+    font-family: inherit;
+    outline-color: #386641;
+  }
+
+  #lumine-chat-form button {
+    border: none;
+    border-radius: 20px;
+    background: #386641;
+    color: white;
+    padding: 9px 12px;
+    cursor: pointer;
+  }
+</style>
+
+<button id="lumine-chat-button" onclick="lumineToggleChat()">
+  🌱 Habla con IA Lumine
+</button>
+
+<div id="lumine-chat-window">
+  <div id="lumine-chat-header">
+    <div>
+      <strong>🌱 IA Lumine</strong>
+      <small>Tu asistente de huerto en casa</small>
+    </div>
+    <button id="lumine-chat-close" onclick="lumineToggleChat()" aria-label="Cerrar chat">×</button>
+  </div>
+
+  <div id="lumine-chat-messages" aria-live="polite">
+    <div class="lumine-message lumine-bot">
+      ¡Hola! 🌿 Soy IA Lumine. Puedo ayudarte con nuestro Kit Huerto Exprés,
+      su precio, los materiales, los cuidados de las plantas y cómo contactarnos.
+      ¿Qué te gustaría saber?
+    </div>
+  </div>
+
+  <form id="lumine-chat-form" onsubmit="lumineSendMessage(event)">
+    <input
+      id="lumine-chat-input"
+      type="text"
+      placeholder="Escribe tu pregunta..."
+      aria-label="Escribe tu pregunta"
+      required
+    >
+    <button type="submit">Enviar</button>
+  </form>
+</div>
+
+<script>
+  function lumineToggleChat() {
+    const chat = document.getElementById("lumine-chat-window");
+    chat.style.display =
+      chat.style.display === "block" ? "none" : "block";
+  }
+
+  function lumineAddMessage(text, type) {
+    const messages = document.getElementById("lumine-chat-messages");
+    const message = document.createElement("div");
+
+    message.className = "lumine-message " +
+      (type === "user" ? "lumine-user" : "lumine-bot");
+
+    message.textContent = text;
+    messages.appendChild(message);
+    messages.scrollTop = messages.scrollHeight;
+  }
+
+  function lumineGetAnswer(question) {
+    const q = question.toLowerCase().normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+
+    if (q.includes("precio") || q.includes("cuesta") ||
+        q.includes("costo") || q.includes("vale")) {
+      return "Nuestro Kit Huerto Exprés LUMINE cuesta S/ 17.50 por unidad. 🌱";
+    }
+
+    if (q.includes("material") || q.includes("incluye") ||
+        q.includes("contiene") || q.includes("que trae")) {
+      return "El kit incluye materiales para comenzar tu huerto, como semillas, tierra, una maceta e instrucciones de cultivo.";
+    }
+
+    if (q.includes("regar") || q.includes("agua") ||
+        q.includes("riego")) {
+      return "Riega con cuidado y revisa la humedad de la tierra. Debe estar húmeda, pero no completamente empapada. 💧";
+    }
+
+    if (q.includes("germina") || q.includes("germinar") ||
+        q.includes("crecer") || q.includes("planta")) {
+      return "Para ayudar a tu planta a crecer, usa tierra adecuada, agua en cantidades moderadas y un lugar con luz apropiada para la especie. Cada semilla tiene su propio tiempo de germinación. 🌿";
+    }
+
+    if (q.includes("comprar") || q.includes("pedido") ||
+        q.includes("carrito") || q.includes("compras")) {
+      return "¡Puedes comprar desde nuestra página! Ve a la sección Producto, agrega el kit al carrito y revisa la cantidad y el total. El kit cuesta S/ 17.50.";
+    }
+
+    if (q.includes("yape") || q.includes("pagar") ||
+        q.includes("pago")) {
+      return "En la sección Yape encontrarás el espacio destinado al QR de pago. Verifica el destinatario y el monto antes de pagar.";
+    }
+
+    if (q.includes("contacto") || q.includes("correo") ||
+        q.includes("email") || q.includes("escribir")) {
+      return "Puedes escribirnos a clienteslumine@gmail.com. Nuestro horario de atención es todos los días, de 8:00 a. m. a 8:00 p. m.";
+    }
+
+    if (q.includes("horario") || q.includes("atienden") ||
+        q.includes("abierto")) {
+      return "Nuestro horario de atención es todos los días, de 8:00 a. m. a 8:00 p. m.";
+    }
+
+    if (q.includes("hola") || q.includes("buenas") ||
+        q.includes("buenos dias") || q.includes("buenas tardes")) {
+      return "¡Hola! 💚 ¡Qué alegría tenerte en LUMINE! Pregúntame sobre el kit, los cuidados de las plantas o cómo hacer tu pedido.";
+    }
+
+    if (q.includes("gracias")) {
+      return "¡De nada! 🌱 En LUMINE estamos felices de ayudarte a cultivar en casa.";
+    }
+
+    return "¡Gracias por tu pregunta! 🌿 Puedo ayudarte con el precio del kit, sus materiales, el cuidado de las plantas, los pedidos y los pagos. Para otras consultas, escríbenos a clienteslumine@gmail.com.";
+  }
+
+  function lumineSendMessage(event) {
+    event.preventDefault();
+
+    const input = document.getElementById("lumine-chat-input");
+    const question = input.value.trim();
+
+    if (!question) return;
+
+    lumineAddMessage(question, "user");
+    input.value = "";
+
+    const now = new Date();
+    const peruTime = new Intl.DateTimeFormat("en-GB", {
+      timeZone: "America/Lima",
+      hour: "2-digit",
+      minute: "2-digit",
+      hourCycle: "h23"
+    }).formatToParts(now);
+
+    const hour = Number(
+      peruTime.find(part => part.type === "hour").value
+    );
+
+    if (hour < 8 || hour >= 20) {
+      lumineAddMessage(
+        "Gracias por escribir a LUMINE. Nuestro horario de atención es de 8:00 a. m. a 8:00 p. m. Puedes dejarnos tu consulta en clienteslumine@gmail.com.",
+        "bot"
+      );
+      return;
+    }
+
+    lumineAddMessage(lumineGetAnswer(question), "bot");
+  }
+</script>
+<!-- FIN DEL CHAT IA LUMINE -->
+
+
+</body>
+</html>
+
+
+ 
+
+
+
+
